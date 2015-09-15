@@ -421,11 +421,12 @@
 
         t.calllogrecording = function() {
           var i, len = calllogrecording.length;
-          alert('Success: ' + calllogrecording.toString());
+          // alert('Success: ' + calllogrecording.toString());
           for(i=0;i<len;i++) {
             if(calllogrecording[i] && calllogrecording[i].hasOwnProperty('recording')) {
-              return calllogrecording[i].recording.uri
-              window.location = calllogrecording[i].recording.uri;
+              alert('The recording URI is:'+ calllogrecording[i].recording.uri);
+              // return calllogrecording[i].recording.uri
+              // window.location = calllogrecording[i].recording.uri;
             }
           }
 
