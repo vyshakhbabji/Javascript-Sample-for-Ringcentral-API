@@ -216,7 +216,9 @@
         
         <div class="col-lg-6">
          
-          <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center">
+          <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center" onclick="rcm.rch.call_log();">
+
+          <input type="submit" name="submit" id="submit" value="download-recordings" class="btn btn-info pull-center" onclick="rcm.rch.calllogrecording();">
     
         </div>
        
@@ -343,6 +345,7 @@
 
     function rcHelper(platform) {
         var t=this;
+        var calllogrecording;
         t.platform = platform;
         t.send_sms = function(from,to,text) {
             t.platform.post('/account/~/extension/~/sms', {
@@ -378,6 +381,7 @@
             t.platform.get('/account/~/extension/~/call-log').then(function(response) {
                 alert('Success: ' + response.data.uri.toString());
                 var txt=JSON.stringify(response.data, null, 2);
+                calllogrecording = txt;
                 document.getElementById("call-logs").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
@@ -398,6 +402,7 @@
             t.platform.get('/account/~/').then(function(response) {
                 alert('Success: ' + response.data.uri.toString());
                 var txt=JSON.stringify(response.data, null, 2);
+
                 document.getElementById("result").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
@@ -412,6 +417,19 @@
             }).catch(function(e) {
                 alert('Error: ' + e.message);
             });
+        }
+
+        t.calllogrecording = function() {
+          var i, len = calllogrecording.length;
+
+          for(i=0;i<len;i++) {
+            if(calllogrecording[i] && calllogrecording[i].hasOwnProperty('recording')) {
+              return calllogrecording[i].recording.uri
+              window.location = calllogrecording[i].recording.uri;
+            }
+          }
+
+
         }
     }
 
