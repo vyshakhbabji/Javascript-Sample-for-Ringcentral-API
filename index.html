@@ -382,6 +382,7 @@
                 alert('Success: ' + response.data.uri.toString());
                 var txt=JSON.stringify(response.data, null, 2);
                 calllogrecording = txt;
+                alert('The JSON array is' + calllogrecording.toString());
                 document.getElementById("call-logs").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
