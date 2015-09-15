@@ -345,7 +345,7 @@
 
     function rcHelper(platform) {
         var t=this;
-        var calllogrecording;
+        var callrecording;
         t.platform = platform;
         t.send_sms = function(from,to,text) {
             t.platform.post('/account/~/extension/~/sms', {
@@ -421,11 +421,11 @@
         }
 
         t.calllogrecording = function() {
-          var i, len = calllogrecording.length;
+          var i, len = callrecording.length;
           // alert('Success: ' + calllogrecording.toString());
           for(i=0;i<len;i++) {
-            if(calllogrecording[i] && calllogrecording[i].hasOwnProperty('recording')) {
-              alert('The recording URI is:'+ calllogrecording[i].recording.uri);
+            if(callrecording[i] && callrecording[i].hasOwnProperty('recording')) {
+              alert('The recording URI is:'+ callrecording[i].recording.uri);
               // return calllogrecording[i].recording.uri
               // window.location = calllogrecording[i].recording.uri;
             }
