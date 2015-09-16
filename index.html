@@ -381,8 +381,8 @@
             t.platform.get('/account/~/extension/~/call-log').then(function(response) {
                 alert('Success: ' + response.data.uri.toString());
                 var txt=JSON.stringify(response.data, null, 2);
-                calllogrecording = txt;
-                alert('The JSON array is' + calllogrecording.toString());
+                callrecording = txt;
+                alert('The JSON array is' + callrecording.toString());
                 document.getElementById("call-logs").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
