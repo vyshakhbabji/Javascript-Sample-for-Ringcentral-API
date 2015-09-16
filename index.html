@@ -398,8 +398,8 @@
             t.platform.get('/account/~/extension/~/call-log').then(function(response) {
                 alert('Success: ' + response.data.uri.toString());
                 var txt=JSON.stringify(response.data, null, 2);
-                callrecording = txt.JSON;
-                alert('The JSON array is' + callrecording.toString());
+                // callrecording = txt.JSON;
+                // alert('The JSON array is' + callrecording.toString());
                 document.getElementById("call-logs-text").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
