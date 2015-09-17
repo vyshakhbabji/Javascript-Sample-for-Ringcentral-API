@@ -1,0 +1,51 @@
+<style>
+        .verb {
+            font-size: 105%;
+        }
+        .panel-title a:first-child:hover {
+            text-decoration: none;
+        }
+        .tab-pane div:first-child {
+            margin-top: 20px;
+        }
+        pre {
+            border: none;
+        }
+        .string {
+            color: green;
+        }
+        .number {
+            color: darkorange;
+        }
+        .boolean {
+            color: blue;
+        }
+        .null {
+            color: magenta;
+        }
+        .key {
+            color: red;
+        }
+        .result-section {
+          margin:0px -2px 0px 0px;
+          height:391px;
+          width:524px;
+          overflow-y: scroll;
+        }
+        #title {
+            /*background: url(//raw.githubusercontent.com/ServiceStack/Assets/master/img/artwork/logo-24.png) no-repeat 10px 10px;*/
+            font-size: 24px;
+            line-height: 24px;
+            padding: 15px 0 15px 45px;
+        }
+        /* CSS for the panel-heading*/
+        .panel-heading {
+          /*background:light-blue !important;/* color: #777; */*/
+        }
+        .navbar-default {
+          /*background: #FF8533 !important;*/
+        }
+        .navbar-brand {
+            color: #FF8533 !important;
+        }
+</style>

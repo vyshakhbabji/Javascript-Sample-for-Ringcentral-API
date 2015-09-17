@@ -5,458 +5,259 @@
     <title>API Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <style>
-        .verb {
-            font-size: 105%;
-        }
-        .panel-title a:first-child:hover {
-            text-decoration: none;
-        }
-        .tab-pane div:first-child {
-            margin-top: 20px;
-        }
-        pre {
-            border: none;
-        }
-        .string {
-            color: green;
-        }
-        .number {
-            color: darkorange;
-        }
-        .boolean {
-            color: blue;
-        }
-        .null {
-            color: magenta;
-        }
-        .key {
-            color: red;
-        }
-        .result-section {
-          margin:0px -2px 0px 0px;
-          height:391px;
-          width:524px;
-          overflow-y: scroll;
-        }
-        #title {
-            /*background: url(//raw.githubusercontent.com/ServiceStack/Assets/master/img/artwork/logo-24.png) no-repeat 10px 10px;*/
-            font-size: 24px;
-            line-height: 24px;
-            padding: 15px 0 15px 45px;
-        }
-    </style>
+    <link href="./App/Css/demo.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-<!--     // <script src="jiko.js" type="text/javascript"></script> -->
+    <script src="./App/Js/demo.js"></script>
+
 </head>
     <body>
-        <script>
-        function toggleChevron(e) {
-                    $(e.target)
-                        .prev('.panel-heading')
-                        .find("i.indicator")
-                        .toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
-                }
-                $('#accordion').on('hidden.bs.collapse', toggleChevron);
-                $('#accordion').on('shown.bs.collapse', toggleChevron);
-        </script>
-        <div class="container">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <a id="title" class="navbar-brand" href="#">Javascript SDK - Ring Central</a>
-                </div>
-            </nav>
-        </div>
+            <script>
+            function toggleChevron(e) {
+                        $(e.target)
+                            .prev('.panel-heading')
+                            .find("i.indicator")
+                            .toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
+                    }
+                    $('#accordion').on('hidden.bs.collapse', toggleChevron);
+                    $('#accordion').on('shown.bs.collapse', toggleChevron);
+            </script>
+            <div class="container">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <a id="title" class="navbar-brand" href="#">Javascript SDK - Ring Central</a>
+                    </div>
+                </nav>
+            </div>
 
-        <div class="container">
-            <div id="main" class="panel-group">
-               <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Authorize / User Information 
-        </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        <div class="col-lg-6">
-          <!-- <form role="form"> -->
-           <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-           <div class="form-group">
-            <label for="InputName">App Key</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="InputName" id="appkey" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <div class="form-group">
-            <label for="InputEmail">App Secret</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="appSecret" name="InputEmail" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <div class="form-group">
-            <label for="InputEmail">UserID</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="userid" name="InputEmail" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <div class="form-group">
-            <label for="InputEmail">Extension</label>
-            <div class="input-group">
-              <input type="text" id="extension" class="form-control" >
-              <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span> --></div>
-          </div>          
-          <div class="form-group">
-            <label for="InputEmail" type="password">Password</label>
-            <div class="input-group">
-              <input type="password" class="form-control" id="password" name="InputEmail" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
-          </div>
-          <input type="submit" name="submit" value="Authorize" class="btn btn-info pull-left" onclick="rcm.authorizeFields();">
-          <input type="submit" name="submit"  value="User Information" class="btn btn-info pull-right" onclick="rcm.rch.get_info();">
-        <!--   </form> -->
+            <div class="container">
+                <div id="main" class="panel-group">
+                   <div class="panel-group" id="accordion">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              Authorize / User Information 
+            </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+          </h4>
         </div>
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="result" name="content" ></textarea>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="col-lg-6">
+              <!-- <form role="form"> -->
+               <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
+               <div class="form-group">
+                <label for="InputName">App Key</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="InputName" id="appkey" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">App Secret</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="appSecret" name="InputEmail" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">UserID</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="userid" name="InputEmail" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">Extension</label>
+                <div class="input-group">
+                  <input type="text" id="extension" class="form-control" >
+                  <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span> --></div>
+              </div>          
+              <div class="form-group">
+                <label for="InputEmail" type="password">Password</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="password" name="InputEmail" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <input type="submit" name="submit" value="Authorize" class="btn btn-info pull-left" onclick="rcm.authorizeFields();">
+              <input type="submit" name="submit"  value="User Information" class="btn btn-info pull-right" onclick="rcm.rch.get_info();">
+            <!--   </form> -->
+            </div>
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="result" name="content" ></textarea>
+            </div>
+          </div>
+        </div>
+        </div>
+          <!-- Send SMS -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+               Send SMS
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+           <div class="col-lg-6">
+             <!--  <form role="form" action="" method="post"> -->
+              <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
+              <div class="form-group">
+                <label for="InputName">From Number</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="InputName" id="fromnumber" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">To Number</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="InputEmail" name="tonumber" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <div class="form-group">
+                <label for="InputMessage">Message</label>
+                <div class="input-group">
+                    <textarea name="InputMessage" id="textmessage" class="form-control" rows="5" required=""></textarea>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+              <input type="submit" name="submit" id="submit" value="sendSMS" class="btn btn-info pull-left" onclick="rcm.rch.send_sms($('#fromnumber').val(),$('#tonumber').val(),$('#textmessage').val());">
+            </div>
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="call-logs" name="content" ></textarea>
+            </div>  
+          </div>
+
         </div>
       </div>
-    </div>
-    </div>
-      <!-- Send SMS -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-           Send SMS
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-       <div class="col-lg-6">
-         <!--  <form role="form" action="" method="post"> -->
-          <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-          <div class="form-group">
-            <label for="InputName">From Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="InputName" id="fromnumber" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        <!-- RingOut -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+               RingOut
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+          <div class="panel-body">
+            
+            <div class="col-lg-6">
+            
+              <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
+              <div class="form-group">
+                <label for="InputName">From Number</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="InputName" id="InputName" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>
+           
+              <input type="submit" name="submit" id="submit" value="ringout" class="btn btn-info pull-left" onclick="rcm.rch.ring_out($('#from').val(),$('#tonumber').val());"/>
+             
+            </div>
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="ringout" name="content" ></textarea>
+            </div> 
+         </div>
           </div>
-          <div class="form-group">
-            <label for="InputEmail">To Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="InputEmail" name="tonumber" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        </div>
+      
+        <!-- Call logs -->
+      <div class="panel panel-default">
+      <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+               Call Logs
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse">
+          <div class="panel-body">
+            
+            <div class="col-lg-6">
+             
+              <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center" onclick="rcm.rch.call_log();">
+
+              <input type="submit" name="submit" id="submit" value="download-recordings" class="btn btn-info pull-center" onclick="rcm.rch.calllogrecording();">
+        
+            </div>
+           
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="call-logs-text" name="content" ></textarea>
+            </div> 
+
           </div>
-          <div class="form-group">
-            <label for="InputMessage">Message</label>
-            <div class="input-group">
-                <textarea name="InputMessage" id="textmessage" class="form-control" rows="5" required=""></textarea>
-                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+        </div>
+      </div>
+      <!-- Presence Checks -->
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+               Presence Checks
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse">
+          <div class="panel-body">
+            
+            <div class="col-lg-6">
+             
+              <input type="submit" name="submit" id="submit" value="Presence Check" class="btn btn-info pull-center" onclick="rcm.rch.presence();">
+        
+            </div>
+           
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="presence" name="content" ></textarea>
+            </div> 
+
           </div>
-          <input type="submit" name="submit" id="submit" value="sendSMS" class="btn btn-info pull-left" onclick="rcm.rch.send_sms($('#fromnumber').val(),$('#tonumber').val(),$('#textmessage').val());">
         </div>
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="call-logs" name="content" ></textarea>
-        </div>  
       </div>
+        <!-- Message Store -->
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+               Message-Store
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse">
+          <div class="panel-body">
+            
+            <div class="col-lg-6">
+             
+              <input type="submit" name="submit" id="submit" value="Message Store" class="btn btn-info pull-center" onclick="rcm.rch.messagestore();">
+        
+            </div>
+           
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="message-store" name="content" ></textarea>
+            </div> 
 
-    </div>
-  </div>
-    <!-- RingOut -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-           RingOut
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-        
-          <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-          <div class="form-group">
-            <label for="InputName">From Number</label>
-            <div class="input-group">
-              <input type="text" class="form-control" name="InputName" id="InputName" >
-              <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
           </div>
-       
-          <input type="submit" name="submit" id="submit" value="ringout" class="btn btn-info pull-left" onclick="rcm.rch.ring_out($('#from').val(),$('#tonumber').val());"/>
-         
-        </div>
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="ringout" name="content" ></textarea>
-        </div> 
-     </div>
-      </div>
+        </div    
+
     </div>
-  
-    <!-- Call logs -->
-  <div class="panel panel-default">
-  <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-           Call Logs
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
     </div>
-    <div id="collapseFour" class="panel-collapse collapse">
-      <div class="panel-body">
+    </div>
         
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center" onclick="rcm.rch.call_log();">
+  </body>
 
-          <input type="submit" name="submit" id="submit" value="download-recordings" class="btn btn-info pull-center" onclick="rcm.rch.calllogrecording();">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="call-logs-text" name="content" ></textarea>
-        </div> 
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/es6-promise-polyfill/promise.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/aes.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/sha256.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/components/mode-ecb.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/pubnub/web/pubnub.js"></script>
+    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/rcsdk/build/rc-sdk.js"></script>
 
-      </div>
-    </div>
-  </div>
-  <!-- Presence Checks -->
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-           Presence Checks
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="Presence Check" class="btn btn-info pull-center" onclick="rcm.rch.presence();">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="presence" name="content" ></textarea>
-        </div> 
-
-      </div>
-    </div>
-  </div>
-    <!-- Message Store -->
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-           Message-Store
-        </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
-      </h4>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-        <div class="col-lg-6">
-         
-          <input type="submit" name="submit" id="submit" value="Message Store" class="btn btn-info pull-center" onclick="rcm.rch.messagestore();">
-    
-        </div>
-       
-        <!-- For the results div -->
-        <div class="col-lg-6">
-          <textarea class="result-section" id="message-store" name="content" ></textarea>
-        </div> 
-
-      </div>
-    </div    
-
-</div>
-
-</div>
-</div>
-        
-</body>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/es6-promise-polyfill/promise.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/aes.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/sha256.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/components/mode-ecb.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/pubnub/web/pubnub.js"></script>
-<script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/rcsdk/build/rc-sdk.js"></script>
-<script>
-
-    var callrecording;
-
-    // Global function for call log recording
-
-    // function calllogrecording(){
-
-    //   var i, len = callrecording.length;
-    //   alert('Success: Button Clicked ');
-    //   for(i=0;i<len;i++) {
-    //     if(callrecording.records[i] && callrecording.hasOwnProperty('recording')) {
-    //     alert('The recording URI is:'+ callrecording[i].recording.uri);
-    //           // return calllogrecording[i].recording.uri
-    //           // window.location = calllogrecording[i].recording.uri;
-
-    //     }
-    //   }
-    // }
-
-    function rcManager(appKeyField,appSecretField,usernameField,extensionField,passwordField) {
-        var t=this;
-        t.appKeyField    = appKeyField;
-        t.appSecretField = appSecretField;
-        t.usernameField  = usernameField;
-        t.extensionField = extensionField;
-        t.passwordField  = passwordField;
-        t.serverUrl = 'https://platform.devtest.ringcentral.com';
-        t.rcsdk     = '';
-        t.rch       = '';
-        t.authorizeFields = function() {
-            t.authorizeFull(
-                    $(t.appKeyField).val(),
-                    $(t.appSecretField).val(),
-                    $(t.usernameField).val(),
-                    $(t.extensionField).val(),
-                    $(t.passwordField).val()
-            );
-        }
-        t.authorizeFull = function(appKey,appSecret,username,extension,password) {
-            t.loadRcsdk(appKey,appSecret);
-            t.authorize(username,extension,password);
-        }
-        t.loadRcsdk = function(appKey,appSecret) {
-            t.rcsdk = new RCSDK({
-                server: t.serverUrl,
-                appKey: appKey,
-                appSecret: appSecret
-            });
-        }
-        t.authorize = function(username,extension,password) {
-            p = t.rcsdk.getPlatform();
-            p.authorize({
-                username:  username, // phone number in full format
-                extension: extension, // leave blank if direct number is used
-                password:  password
-            }).then(function(response) {
-                // your code here
-                alert('success: ');
-            }).catch(function(e) {
-                alert('ERR ' + e.message  || 'Server cannot authorize user');
-            });
-            t.rch = new rcHelper(p);
-        }
-    }
-
-    function rcHelper(platform) {
-        var t=this;
-        // var callrecording;
-        t.platform = platform;
-        t.send_sms = function(from,to,text) {
-            t.platform.post('/account/~/extension/~/sms', {
-                body: {
-                    from: {phoneNumber:from}, // Your sms-enabled phone number
-                    to: [
-                        {phoneNumber:to} // Second party's phone number
-                    ],
-                    text: text
-                }
-            }).then(function(response) {
-                alert('Success: ' + response.data.id);
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        t.ring_out = function(from,to) {
-            this.platform.post('/account/~/extension/~/ringout', {
-                body: {
-                    from: {phoneNumber:from}, // Your sms-enabled phone number
-                    to: {phoneNumber:to}, // Second party's phone number
-                    playPrompt: true
-                }
-            }).then(function(response) {
-                //alert('Success: ' + response.data.id);
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        t.call_log = function() {
-            t.platform.get('/account/~/extension/~/call-log').then(function(response) {
-                alert('Success: ' + response.data.uri.toString());
-                var txt=JSON.stringify(response.data, null, 2);
-                callrecording = txt.JSON;
-                // alert('The JSON array is' + callrecording.toString());
-                console.log('The Value of callrecording string is'+callrecording);
-                document.getElementById("call-logs-text").innerHTML=txt;
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        t.presence = function() {
-            t.platform.get('/account/~/extension/~/presence').then(function(response) {
-                alert('Success: ' + response.data.uri.toString());
-                var txt=JSON.stringify(response.data, null, 2);
-                document.getElementById("presence").innerHTML=txt;
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        t.get_info = function() {
-            t.platform.get('/account/~/').then(function(response) {
-                alert('Success: ' + response.data.uri.toString());
-                var txt=JSON.stringify(response.data, null, 2);
-
-                document.getElementById("result").innerHTML=txt;
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        t.messagestore= function() {
-            t.platform.get('/account/~/extension/~/message-store').then(function(response) {
-                alert('Success: ' + response.data.uri.toString());
-                var txt=JSON.stringify(response.data, null, 2);
-                document.getElementById("message-store").innerHTML=txt;
-            }).catch(function(e) {
-                alert('Error: ' + e.message);
-            });
-        }
-
-        // Helper function for call log recording
-        t.calllogrecording = function() {
-           var i, len = callrecording.length;
-              alert('Success: Button Clicked ');
-              for(i=0;i<len;i++) {
-              if(callrecording.records[i] && callrecording.records[i].hasOwnProperty('recording')) {
-              alert('The recording URI is:'+ callrecording.records[i].recording.contentUri);
-              // return calllogrecording[i].recording.uri
-              // window.location = calllogrecording[i].recording.uri;
-              }
-              }  
-        }
-}
-
-    rcm = new rcManager('#appkey','#appSecret','#userid','#extension','#password');
-
-</script>
 </html>
 
 
