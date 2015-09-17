@@ -128,85 +128,36 @@
         }
 
         t.calllogrecording = function() {
-            // try{
+         
 
-            //     // var json = JSON.parse(callrecording);
-            //     // var len = json.records.length;
-            //     var options = options || {};
-            //     options.url = '/account/131192004/recording/1216550004/content';
-            //     options.method ='GET';
+                var json = JSON.parse(callrecording);
+                var len = json.records.length;
 
-            //     // with the apiCall function
-            //     // t.platform.apiCall(options).then(function(response) {
-            //     //     alert('Success: ' + response.data);
-            //     // }).catch(function(e){
-            //     //     alert('Error' + e.message);
-            //     // });
+                 for(i=0;i<len;i++) {
 
 
+                      if(json.records[i].hasOwnProperty('recording')){
+                                    var uri = json.records[i].recording.contentUri;
+                                    // alert('The recording URI is:'+ uri);
+                                    console.log('The Value of URI is'+ uri);
+                                    var url = uri.replace (/^[a-z]{5}\:\/{2}[a-z]{1,}\.[a-z]{1,}\.[a-z]{1,}\.[a-z]{1,}\:[0-9]{1,4}\/{1}[a-z]{1,}\/{1}[a-z]{1,}.\.0(.*)/, '$1');
+                                    console.log('Replaced URI'+ url);
+                                    
 
-                t.platform.get('/account/131192004/recording/1216550004/content').then(function(response){
-                    // response.setHeader('Content-Type':'audio/x-wav');
-                    alert('Success: ' + response.data);
-                    // alert('Response Header' + response.);
-                }).catch(function(e){
-                    alert('Error' + e.message);
-                });
+                                    t.platform.get(url).then(function(response){
+                                        // response.setHeader('Content-Type':'audio/x-wav');
+                                        alert('Success: ' + response.data);
+                                        // alert('Response Header' + response.);
+                                    }).catch(function(e){
+                                        alert('Error' + e.message);
+                                    });
 
-            // }catch(e){
-            //     alert('Error: ' + e.message);
-            // } 
-        }
-        
-        // Helper function for call log recording
-        // t.calllogrecording = function() {
-        //    try{
+                             
+                  }
+              }
+              }
+      }           
 
-
-        //           var i;
-        //           alert('callrecording: '+callrecording);
-        //           var json = JSON.parse(callrecording);
-        //           var len = json.records.length;
-        //           if( window.localStorage ) {
-        //                 var lc = localStorage.getItem("rc-platform");
-        //                 var authHeader = JSON.parse(lc);
-
-        //                 alert(authHeader.access_token);
-                        
-        //             }
-        //           for(i=0;i<len;i++) {
-        //               // if(callrecording.records[i] && callrecording.records[i].hasOwnProperty('recording')) {
-        //               // alert('The recording URI is:'+ callrecording.records[i].recording.contentUri);
-
-        //               if(json.records[i].hasOwnProperty('recording')){
-        //                             var uri = json.records[i].recording.contentUri;
-        //                             alert('The recording URI is:'+ uri);
-        //                             console.log('The Value of URI is'+ uri);
-
-        //                           // return calllogrecording[i].recording.uri
-        //                            // window.location = json.records[i].recording.contentUri;
-        //                           // t.platform.get('json.records[i].recording.contentUri').then(function(response) {
-        //                           //   alert("Recording Successfully downloaded");
-        //                             // });
-        //                         $.ajax({
-        //                             url:uri,
-        //                             // headers:{
-        //                             //     // 'authorization': JSON.parse(localStorage.getItem("rc-platform")).access_token
-        //                             //     'authorization': 'Bearer U0pDMTFQMDFQQVMwMXxBQURZbC00MFA3cmZsZmxUbzRrLXVKMVFaMGxndUJSMFAwbjhVcmlTV3lJLWlqdzgtRWVMZF9ZaU1rQUt4enJuUUk0OEVhRHNxRWdJVUhPV3FzbEwwTUtudjUtOVZPUzNjS0p2cjZSYUdsbW93cTlIekwweVY3N2F8zrQKMSOqgayMTLl0b1Zq21SUf24'
-        //                             // },
-        //                             beforeSend:function(xhr, settings){xhr.setRequestHeader('authorization','Bearer U0pDMTFQMDFQQVMwMXxBQURZbC00MFA3cmZsZmxUbzRrLXVKMVFaMGxndUJSMFAwbjhVcmlTV3lJLWlqdzgtRWVMZF9ZaU1rQUt4enJuUUk0OEVhRHNxRWdJVUhPV3FzbEwwTUtudjUtOVZPUzNjS0p2cjZSYUdsbW93cTlIekwweVY3N2F8zrQKMSOqgayMTLl0b1Zq21SUf24');}
-        //                             type:'GET',
-        //                             dataType: 'jsonp',
-        //                             success:function(){ alert("successfully downloaded"); },
-        //                             error:function(){ alert("Error in Downloading the Recording content");}
-        //                         });
-        //           }
-        //       }
-        //   }catch(e){
-        //         alert('Error: ' + e.message);
-        //       }  
-        // }
-}
 
 rcm = new rcManager('#appkey','#appSecret','#userid','#extension','#password');
 
