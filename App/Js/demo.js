@@ -63,6 +63,8 @@
                 }
             }).then(function(response) {
                 alert('Success: ' + response.data.id);
+                var txt=JSON.stringify(response.data, null, 2);
+                document.getElementById("sms_result").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
             });
@@ -76,7 +78,9 @@
                     playPrompt: true
                 }
             }).then(function(response) {
-                //alert('Success: ' + response.data.id);
+                alert('Success: ' + response.data.id);
+                var txt=JSON.stringify(response.data, null, 2);
+                document.getElementById("ringout_result").innerHTML=txt;
             }).catch(function(e) {
                 alert('Error: ' + e.message);
             });

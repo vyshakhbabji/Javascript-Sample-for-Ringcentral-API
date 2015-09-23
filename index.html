@@ -105,26 +105,26 @@
               <div class="form-group">
                 <label for="InputName">From Number</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" name="InputName" id="fromnumber" >
+                  <input type="text" class="form-control" id="sms_from" >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
               </div>
               <div class="form-group">
                 <label for="InputEmail">To Number</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="InputEmail" name="tonumber" >
+                  <input type="text" class="form-control" id="sms_to" >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
               </div>
               <div class="form-group">
                 <label for="InputMessage">Message</label>
                 <div class="input-group">
-                    <textarea name="InputMessage" id="textmessage" class="form-control" rows="5" required=""></textarea>
+                    <textarea name="InputMessage" id="sms_message" class="form-control" rows="5" required=""></textarea>
                     <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
               </div>
-              <input type="submit" name="submit" id="submit" value="sendSMS" class="btn btn-info pull-left" onclick="rcm.rch.send_sms($('#fromnumber').val(),$('#tonumber').val(),$('#textmessage').val());">
+              <input type="submit" name="submit" id="submit" value="sendSMS" class="btn btn-info pull-left" onclick="rcm.rch.send_sms($('#sms_from').val(),$('#sms_to').val(),$('#sms_message').val());">
             </div>
             <!-- For the results div -->
             <div class="col-lg-6">
-              <textarea class="result-section" id="call-logs" name="content" ></textarea>
+              <textarea class="result-section" id="sms_result" name="content" ></textarea>
             </div>  
           </div>
 
@@ -148,16 +148,21 @@
               <div class="form-group">
                 <label for="InputName">From Number</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" name="InputName" id="InputName" >
+                  <input type="text" class="form-control" name="InputName" id="ringout_from" >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
               </div>
-           
-              <input type="submit" name="submit" id="submit" value="ringout" class="btn btn-info pull-left" onclick="rcm.rch.ring_out($('#from').val(),$('#tonumber').val());"/>
+              <div class="form-group">
+                <label for="InputName">To Number</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="InputName" id="ringout_to" >
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+              </div>           
+              <input type="submit" name="submit" id="submit" value="ringout" class="btn btn-info pull-left" onclick="rcm.rch.ring_out($('#ringout_from').val(),$('#ringout_to').val());"/>
              
             </div>
             <!-- For the results div -->
             <div class="col-lg-6">
-              <textarea class="result-section" id="ringout" name="content" ></textarea>
+              <textarea class="result-section" id="ringout_result" name="content" ></textarea>
             </div> 
          </div>
           </div>
@@ -258,7 +263,6 @@
     <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/components/mode-ecb.js"></script>
     <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/pubnub/web/pubnub.js"></script>
     <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/rcsdk/build/rc-sdk.js"></script>
-
 
 </html>
 
