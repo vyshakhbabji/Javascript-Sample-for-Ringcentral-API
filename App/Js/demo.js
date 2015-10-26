@@ -153,9 +153,17 @@
                                     t.platform.get(url).then(function(response){
                                         // response.setHeader('Content-Type':'audio/x-wav');
                                         alert('Success: ' + response.data);
-                                        var donwloadLink = document.getElementById("download_call_recordings");
-                                        donwloadLink.href = "data:audio/mpeg;charset=utf-8;base64,"+window.btoa(unescape(encodeURIComponent(response.data)));
-                                        donwloadLink.download = 'sample.mp3';
+                                        // var BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder || window.MSBlobBuilder;
+                                        // var URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+
+                                        window.open("data:"+"audio/mpeg"+","+encodeURIComponent(response.data), '_blank', '');
+
+                                        // var donwloadLink = document.getElementById("download_call_recordings");
+                                        // donwloadLink.href = "data:audio/mpeg;charset=utf-8;base64,"+window.btoa(unescape(encodeURIComponent(response.data)));
+                                        // donwloadLink.download = 'sample.mp3';
+                                        
+                                        // var event = document.createEvent
+
                                         // var donwloadLink = btoa()
                                         // console.log(response.data);
                                         // console.log(donwloadLink.href);
