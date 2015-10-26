@@ -9,6 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
+
     <script src="./App/Js/demo.js"></script>
 
 </head>
@@ -27,9 +29,16 @@
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
                         <a id="title" class="navbar-brand" href="#">Javascript SDK - Ring Central</a>
+                        <!-- Switch Button-->
+                        <div class="btn-group btn-toggle" style="float:right;"> 
+                          <button class="btn btn-lg btn-default">ON</button>
+                          <button class="btn btn-lg btn-primary active">OFF</button>
+                        </div>
                     </div>
+            </div>
                 </nav>
             </div>
+
 
             <div class="container">
                 <div id="main" class="panel-group">
@@ -184,7 +193,7 @@
              
               <input type="submit" name="submit" id="submit" value="call-logs" class="btn btn-info pull-center" onclick="rcm.rch.call_log();">
 
-              <input type="submit" name="submit" id="submit" value="download-recordings" class="btn btn-info pull-center" onclick="rcm.rch.calllogrecording();">
+              <input type="submit" name="submit" id="download_call_recordings" value="download-recordings" class="btn btn-info pull-center" onclick="rcm.rch.calllogrecording();">
         
             </div>
            
@@ -250,19 +259,51 @@
 
     </div>
     </div>
+      <!-- Subscription -->
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+               Subscription
+            </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+          </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse">
+          <div class="panel-body">
+            
+            <div class="col-lg-6">
+             
+              <input type="submit" name="submit" id="submit" value="Subscribe(ext 102)" class="btn btn-info pull-center" onclick="rcm.rch.startSubscription();">
+        
+            </div>
+            <!-- <div class="col-lg-6">
+             
+              <input type="submit" name="submit" id="submit" value="Subscribe(ext 103)" class="btn btn-info pull-center" onclick="rcm.rch.presence();">
+        
+            </div> -->
+            <!-- For the results div -->
+            <div class="col-lg-6">
+              <textarea class="result-section" id="subscription" name="content" ></textarea>
+            </div>
+            <!-- <div class="col-lg-6">
+              <textarea class="result-section" id="presence" name="content" ></textarea>
+            </div> 
+ -->
+          </div>
+        </div>
+      </div>    
     </div>
         
   </body>
 
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/es6-promise-polyfill/promise.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/es6-promise-polyfill/promise.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/aes.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/rollups/sha256.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/cryptojslib/components/mode-ecb.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/pubnub/web/pubnub.js"></script>
-    <script src="//rawgithub.com/anilkumarbp/Javascript-Sample-for-Ringcentral-API.github.io/master/bower_components/rcsdk/build/rc-sdk.js"></script>
+    <script src="./bower_components/es6-promise-polyfill/promise.js"></script>
+<script src="./bower_components/cryptojslib/rollups/aes.js"></script>
+<script src="./bower_components/cryptojslib/rollups/sha256.js"></script>
+<script src="./bower_components/cryptojslib/components/mode-ecb.js"></script>
+<script src="./bower_components/pubnub/web/pubnub.js"></script>
+<script src="./bower_components/rcsdk/build/rc-sdk.js"></script>
 
 </html>
 
