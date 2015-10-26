@@ -154,7 +154,7 @@
                                         // response.setHeader('Content-Type':'audio/x-wav');
                                         alert('Success: ' + response.data);
                                         var donwloadLink = document.getElementById("download_call_recordings");
-                                        donwloadLink.href = "data:audio/mpeg;base64,"+window.btoa(response.data);
+                                        donwloadLink.href = "data:audio/mpeg;base64,"+window.btoa(unescape(encodeURIComponent(response.data)));
                                         // var donwloadLink = btoa()
                                         console.log(response.data);
                                         console.log(donwloadLink.href);
